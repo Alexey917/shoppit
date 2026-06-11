@@ -1,7 +1,11 @@
+import { Welcome } from '@/components';
+import { Products } from '@/modules';
+
 export const HomePage = () => {
   return (
-    <div>
-      <h1>Shoppit</h1>
-    </div>
+    <main>
+      <Welcome />
+      <Products />
+    </main>
   );
 };

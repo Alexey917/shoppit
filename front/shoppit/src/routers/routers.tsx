@@ -1,4 +1,4 @@
-import { HomePage } from '@/pages';
+import { HomePage, NotFoundPage } from '@/pages';
 import { Layout } from '@/components';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -10,6 +10,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },

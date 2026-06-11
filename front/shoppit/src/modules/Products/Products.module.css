@@ -1,0 +1,29 @@
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 50px;
+  margin-bottom: 50px;
+}
+
+.title {
+  margin: 50px 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000;
+}
+
+.error {
+  margin: 50px 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  color: red;
+}

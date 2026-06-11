@@ -10,38 +10,50 @@ import classes from './Footer.module.css';
 export const Footer = () => {
   return (
     <footer className={classes.footer}>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="about">About</Link>
-        </li>
-        <li>
-          <Link to="shop">Shop</Link>
-        </li>
-        <li>
-          <Link to="contact">Contact</Link>
-        </li>
-      </ul>
+      <div className={classes.container}>
+        <ul className={classes.footer__list}>
+          <li>
+            <Link to="/" className={classes.footer__link}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="about" className={classes.footer__link}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="shop" className={classes.footer__link}>
+              Shop
+            </Link>
+          </li>
+          <li>
+            <Link to="contact" className={classes.footer__link}>
+              Contact
+            </Link>
+          </li>
+        </ul>
 
-      <ul>
-        <li>
-          <Link to="#">
-            <TwitterOutlined />
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <FacebookOutlined />
-          </Link>
-        </li>
-        <li>
-          <Link to="#">
-            <InstagramOutlined />
-          </Link>
-        </li>
-      </ul>
+        <ul className={classes.footer__list}>
+          <li>
+            <Link to="#" className={classes.footer__social}>
+              <TwitterOutlined />
+            </Link>
+          </li>
+          <li>
+            <Link to="#" className={classes.footer__social}>
+              <FacebookOutlined />
+            </Link>
+          </li>
+          <li>
+            <Link to="#" className={classes.footer__social}>
+              <InstagramOutlined />
+            </Link>
+          </li>
+        </ul>
+
+        <p className={classes.footer__copyright}>© 2024 Shoppit</p>
+      </div>
     </footer>
   );
 };

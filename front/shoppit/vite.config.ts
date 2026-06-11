@@ -16,4 +16,18 @@ export default defineConfig({
       '@routers': resolve(__dirname, 'src/routers'),
     },
   },
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+      '/img': {
+        // 👈 Прокси для изображений
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+    },
+  },
 });
