@@ -1,42 +1,16 @@
-import { useState, useEffect } from 'react';
-import { client } from '../../api/client';
+import type { IProduct } from '../../api/client';
 import { Product } from '../components';
-import { getErrorMessage } from '../../api/errorHandler';
+import { Skeleton } from '@/ui';
 
 import classes from './Products.module.css';
-import { Skeleton } from '@/ui';
-import axios, { AxiosError } from 'axios';
-
-export interface IProduct {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  slug: string;
-}
+import { useFetchApi } from '@/hooks';
 
 export const Products = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const getProducts = async () => {
-    try {
-      setLoading(true);
-      const response = await client.get<IProduct[]>('/products');
-      setProducts(response.data);
-    } catch (e: unknown) {
-      const errorMessage = getErrorMessage(e);
-      console.log(errorMessage);
-      setError(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const {
+    data: products,
+    error,
+    loading,
+  } = useFetchApi<IProduct[]>('/products');
 
   if (loading) {
     return <Skeleton />;

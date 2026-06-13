@@ -1,0 +1,74 @@
+.detail {
+  margin-top: 210px;
+  margin-bottom: 300px;
+  display: grid;
+  grid-template-columns: 800px 500px;
+  grid-template-rows: 2rem 2rem 25rem 2rem;
+  grid-column-gap: 40px;
+  grid-row-gap: 0px;
+  align-items: center;
+  /* grid-template-areas:
+    'img name'
+    'img price'
+    'img description'
+    'img button'; */
+}
+
+.image {
+  grid-area: 1 / 1 / 5 / 2;
+  justify-self: end;
+  width: 600px;
+  height: 700px;
+  object-fit: cover;
+}
+
+.title {
+  justify-self: start;
+  grid-area: 1 / 2 / 2 / 3;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000;
+}
+
+.price {
+  justify-self: start;
+  grid-area: 2 / 2 / 3 / 3;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  color: #000;
+}
+
+.description {
+  text-align: left;
+  justify-self: start;
+  grid-area: 3 / 2 / 4 / 3;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: #000;
+}
+
+.btn {
+  justify-self: start;
+  grid-area: 4 / 2 / 5 / 3;
+  width: 180px;
+  height: 60px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: #000;
+  border-radius: 8px;
+  background-color: #fff;
+  border: 2px solid grey;
+  cursor: pointer;
+}

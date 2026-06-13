@@ -6,7 +6,9 @@ class Products(models.Model):
   CATEGORY = (
     ("Electronics", "ELECTRONICS"),
     ("Groceries", "GROCERIES"),
-    ("Clothings", "CLOTHINGS"),
+    ("Clothings", "Спортивная одежда"),
+    ("Accessories", "Аксессуары"),
+    ("Shoes", "Обувь"),
   )
   name = models.CharField(max_length=100)
   slug = models.SlugField(blank=True, null=True)
