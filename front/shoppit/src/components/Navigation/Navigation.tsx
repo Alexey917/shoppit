@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import classes from './Navigation.module.css';
 
-export const Navigation = () => {
+export const Navigation = ({ quantity }: { quantity: number }) => {
   const location = useLocation();
 
   const currentPathHandler = (to: string) =>
@@ -82,7 +82,7 @@ export const Navigation = () => {
             }}
           />
         </Link>
-        <span className={classes.quantity}>0</span>
+        <span className={classes.quantity}>{quantity}</span>
       </li>
     </ul>
   );

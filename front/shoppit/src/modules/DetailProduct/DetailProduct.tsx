@@ -91,7 +91,7 @@ export const DetailProduct = () => {
           <p className={classes.price}>{product.price}</p>
           <p className={classes.description}>{product.description}</p>
           <button onClick={addItem} disabled={inCart} className={classes.btn}>
-            Добавить в корзину
+            {inCart ? 'Товар уже в корзине' : 'Добавить в корзину'}
           </button>
         </section>
         <SimilarProducts similar={product.similar_products} />
