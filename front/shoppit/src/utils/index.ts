@@ -1,0 +1,1 @@
+export { generateCartCode } from './GenerateCartCode';

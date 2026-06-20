@@ -1,6 +1,8 @@
 .detail {
+  animation: fadeIn 0.3s ease-in-out;
   margin-top: 210px;
   margin-bottom: 300px;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 800px 500px;
   grid-template-rows: 2rem 2rem 25rem 2rem;
@@ -12,6 +14,15 @@
     'img price'
     'img description'
     'img button'; */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .image {
@@ -71,4 +82,8 @@
   background-color: #fff;
   border: 2px solid grey;
   cursor: pointer;
+}
+
+.btn[disabled] {
+  color: grey;
 }

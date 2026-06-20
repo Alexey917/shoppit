@@ -3,6 +3,16 @@
   left: 0;
   background-color: #7a60d8;
   padding-bottom: 50px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .container {
