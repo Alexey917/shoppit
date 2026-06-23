@@ -63,7 +63,7 @@ export const Navigation = () => {
       </li>
       <li className={classes.basket}>
         <Link
-          to="basket"
+          to="cart"
           className={
             !currentPathHandler('basket')
               ? `${classes.navlink}`
