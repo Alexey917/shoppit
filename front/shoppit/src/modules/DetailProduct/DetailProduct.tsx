@@ -6,23 +6,20 @@ import { useFetchApi, usePostApi } from '@/hooks';
 import { SimilarProducts } from '../components';
 
 import classes from './DetailProduct.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { QuantityContext } from '@/components/Layout/Layout';
 
 export const DetailProduct = () => {
   const [inCart, setInCart] = useState<boolean>(false);
   const { slug } = useParams<string>();
   const cartCode = localStorage.getItem('cart_code');
+  const quantity = useContext(QuantityContext);
 
   const {
     data: product,
     error,
     loading,
   } = useFetchApi<IProduct>(`/product_detail/${slug}`);
-
-  // const { data } = usePostApi('/add_item', {
-  //   cart_code: cartCode,
-  //   product_id: product?.id,
-  // });
 
   useEffect(() => {
     if (!cartCode || !product?.id) return;
@@ -53,6 +50,7 @@ export const DetailProduct = () => {
         });
 
         setInCart(true);
+        quantity?.setQuantity((prev) => prev + 1);
       } catch (e: unknown) {
         const errorMessage = getErrorMessage(e);
         console.log(errorMessage);

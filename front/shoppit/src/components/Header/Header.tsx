@@ -3,13 +3,13 @@ import { Navigation } from '@/components';
 
 import classes from './Header.module.css';
 
-export const Header = ({ quantity }: { quantity: number }) => {
+export const Header = () => {
   return (
     <nav className={classes.navigation}>
       <Link to="/" className={classes.navlink}>
         <span className={classes.logo}>SHOPPIT</span>
       </Link>
-      <Navigation quantity={quantity} />
+      <Navigation />
     </nav>
   );
 };

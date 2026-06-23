@@ -1,11 +1,13 @@
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Link, useLocation } from 'react-router-dom';
+import { QuantityContext } from '@/components/Layout/Layout';
 
 import classes from './Navigation.module.css';
+import { useContext } from 'react';
 
-export const Navigation = ({ quantity }: { quantity: number }) => {
+export const Navigation = () => {
   const location = useLocation();
-
+  const quantity = useContext(QuantityContext);
   const currentPathHandler = (to: string) =>
     location.pathname === to ? true : false;
 
@@ -82,7 +84,7 @@ export const Navigation = ({ quantity }: { quantity: number }) => {
             }}
           />
         </Link>
-        <span className={classes.quantity}>{quantity}</span>
+        <span className={classes.quantity}>{quantity?.quantity}</span>
       </li>
     </ul>
   );

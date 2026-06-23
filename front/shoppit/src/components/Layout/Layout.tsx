@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext, useMemo } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '@/components';
 
@@ -7,9 +8,22 @@ import { generateCartCode } from '@/utils';
 import { client } from '@/api/client';
 import { getErrorMessage } from '@/api';
 
+export const QuantityContext = createContext<{
+  quantity: number;
+  setQuantity: Dispatch<SetStateAction<number>>;
+} | null>(null);
+
 export const Layout = () => {
   const [quantity, setQuantity] = useState<number>(0);
   const cardCode = localStorage.getItem('cart_code');
+
+  const contextValue = useMemo(
+    () => ({
+      quantity,
+      setQuantity,
+    }),
+    [quantity],
+  );
 
   useEffect(() => {
     const getQuantity = async () => {
@@ -35,9 +49,11 @@ export const Layout = () => {
 
   return (
     <div className={classes.layout}>
-      <Header quantity={quantity} />
-      <Outlet />
-      <Footer />
+      <QuantityContext.Provider value={contextValue}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </QuantityContext.Provider>
     </div>
   );
 };
