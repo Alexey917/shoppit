@@ -5,14 +5,16 @@ import { CartItem } from '../components/CartItem';
 import classes from './ShoppingCart.module.css';
 import type { ICart, ICartItem } from '@/api/client';
 
-export const ShoppingCart = () => {
+interface IShoppingCart {
+  setCartTotal: (total: number) => void;
+}
+
+export const ShoppingCart = ({ setCartTotal }: IShoppingCart) => {
   const cartCode = localStorage.getItem('cart_code');
 
   const { data, loading, error } = useFetchApi<ICart<ICartItem>>(
     `/get_cart?cart_code=${cartCode}`,
   );
-
-  console.log(data);
 
   if (loading) {
     return (
@@ -46,7 +48,7 @@ export const ShoppingCart = () => {
       <h2 className={classes.title}>Shopping Cart</h2>
       <div>
         {data.items.map((item: ICartItem) => (
-          <CartItem key={item.id} {...item} />
+          <CartItem key={item.id} item={item} setCartTotal={setCartTotal} />
         ))}
       </div>
     </section>

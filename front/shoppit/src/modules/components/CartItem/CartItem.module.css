@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .infoGroup {
@@ -32,4 +33,8 @@
   font-size: 18px;
   line-height: 100%;
   color: grey;
+}
+
+.input {
+  width: 60px;
 }
