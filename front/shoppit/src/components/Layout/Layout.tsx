@@ -2,6 +2,7 @@ import { useEffect, useState, createContext, useMemo } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '@/components';
+import { ToastContainer } from 'react-toastify';
 
 import classes from './Layout.module.css';
 import { generateCartCode } from '@/utils';
@@ -51,6 +52,7 @@ export const Layout = () => {
     <div className={classes.layout}>
       <QuantityContext.Provider value={contextValue}>
         <Header />
+        <ToastContainer />
         <Outlet />
         <Footer />
       </QuantityContext.Provider>

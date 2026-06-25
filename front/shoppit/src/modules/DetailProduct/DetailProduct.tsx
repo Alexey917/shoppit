@@ -2,8 +2,9 @@ import { useParams } from 'react-router-dom';
 import { client, type IProduct } from '../../api/client';
 import { getErrorMessage } from '@/api';
 import { Spin } from 'antd';
-import { useFetchApi, usePostApi } from '@/hooks';
+import { useFetchApi } from '@/hooks';
 import { SimilarProducts } from '../components';
+import { toast } from 'react-toastify';
 
 import classes from './DetailProduct.module.css';
 import { useEffect, useState, useContext } from 'react';
@@ -51,6 +52,7 @@ export const DetailProduct = () => {
 
         setInCart(true);
         quantity?.setQuantity((prev) => prev + 1);
+        toast.success('Товар добавлен в корзину!');
       } catch (e: unknown) {
         const errorMessage = getErrorMessage(e);
         console.log(errorMessage);

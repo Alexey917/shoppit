@@ -1,8 +1,9 @@
 import { client, type ICartItem, type IProduct } from '@/api/client';
 import { getErrorMessage } from '@/api/errorHandler';
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Button, Input } from 'antd';
 import { QuantityContext } from '@/components/Layout/Layout';
+import { toast } from 'react-toastify';
 
 import classes from './CartItem.module.css';
 
@@ -31,6 +32,7 @@ export const CartItem = ({ setCartTotal, item }: IShoppingCart) => {
       setCartTotal(cartResponse.data.sum_total);
       console.log(cartResponse.data);
       quantity?.setQuantity(cartResponse.data.num_of_items);
+      toast.success('Количество товаров обновлено!');
     } catch (e: unknown) {
       const errorMessage = getErrorMessage(e);
       console.log(errorMessage);
