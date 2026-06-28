@@ -17,10 +17,6 @@ export const ShoppingCart = ({ setCartTotal }: IShoppingCart) => {
   const [error, setError] = useState<string | null>(null);
   const cartCode = localStorage.getItem('cart_code');
 
-  // const { data, loading, error } = useFetchApi<ICart<ICartItem>>(
-  //   `/get_cart?cart_code=${cartCode}`,
-  // );
-
   useEffect(() => {
     const fetchApi = async () => {
       try {

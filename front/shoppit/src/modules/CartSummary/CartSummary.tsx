@@ -4,6 +4,7 @@ import { useFetchApi } from '@/hooks';
 import { Button, Spin } from 'antd';
 import { client } from '@/api/client';
 import { getErrorMessage } from '@/api/errorHandler';
+import { Link } from 'react-router-dom';
 
 import classes from './CartSummary.module.css';
 
@@ -86,9 +87,11 @@ export const CartSummary = ({ cartTotal, setCartTotal }: ICartSummary) => {
             >{`$ ${(cartTotal + tax).toFixed(2)}`}</span>
           )}
         </p>
-        <Button color="purple" variant="solid" className={classes.btn}>
-          Proceed to Checkout
-        </Button>
+        <Link to="/checkout" className={classes.btn}>
+          <Button color="purple" variant="solid">
+            Proceed to Checkout
+          </Button>
+        </Link>
       </div>
     </section>
   );

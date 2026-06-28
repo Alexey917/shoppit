@@ -1,0 +1,49 @@
+.orderItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  align-self: flex-start;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: black;
+}
+
+.quantity {
+  align-self: flex-start;
+  margin-bottom: 0;
+  text-align-last: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: grey;
+}
+
+.price {
+  margin-left: auto;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: grey;
+}

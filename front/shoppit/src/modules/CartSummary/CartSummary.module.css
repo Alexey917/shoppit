@@ -25,6 +25,14 @@
 .btn {
   width: 100%;
   height: 45px;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.btn button {
+  width: 100%; /* Кнопка на всю ширину */
+  height: 45px;
 }
 
 .total,

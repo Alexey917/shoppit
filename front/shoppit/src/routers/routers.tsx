@@ -1,4 +1,10 @@
-import { HomePage, NotFoundPage, DetailPage, CartPage } from '@/pages';
+import {
+  HomePage,
+  NotFoundPage,
+  DetailPage,
+  CartPage,
+  CheckoutPage,
+} from '@/pages';
 import { Layout } from '@/components';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -18,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: '/cart',
         element: <CartPage />,
+      },
+      {
+        path: '/checkout',
+        element: <CheckoutPage />,
       },
       {
         path: '*',
