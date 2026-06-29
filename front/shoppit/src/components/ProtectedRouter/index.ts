@@ -1,0 +1,1 @@
+export { ProtectedRouter } from './ProtectedRouter';

@@ -4,8 +4,9 @@ import {
   DetailPage,
   CartPage,
   CheckoutPage,
+  LoginPage,
 } from '@/pages';
-import { Layout } from '@/components';
+import { Layout, ProtectedRouter } from '@/components';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -26,8 +27,16 @@ export const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
+        path: '/login',
+        element: <LoginPage />,
+      },
+      {
         path: '/checkout',
-        element: <CheckoutPage />,
+        element: (
+          <ProtectedRouter>
+            <CheckoutPage />
+          </ProtectedRouter>
+        ),
       },
       {
         path: '*',
