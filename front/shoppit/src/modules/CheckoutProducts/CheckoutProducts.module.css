@@ -1,0 +1,82 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 0 15px grey;
+  width: 880px;
+}
+
+.header {
+  border-radius: 8px 8px 0 0;
+  background-color: #7a60d8;
+  padding: 15px;
+}
+
+.title {
+  margin-bottom: 0;
+  text-align-last: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  color: #fff;
+}
+
+.article {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 15px;
+  height: 350px;
+  overflow-y: scroll;
+}
+
+.separator {
+  margin: 30px auto;
+  width: 700px;
+}
+
+.flutter {
+  text-align-last: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: black;
+}
+
+.paypal {
+  text-align-last: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fff;
+}
+
+.flutter,
+.paypal {
+  height: 45px;
+  width: 350px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: black;
+}

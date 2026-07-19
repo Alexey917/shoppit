@@ -1,0 +1,11 @@
+.section {
+  width: 1126px;
+
+  margin: 50px auto;
+  display: grid;
+  grid-template-areas:
+    'user overview'
+    'history history';
+  grid-column-gap: 40px;
+  grid-row-gap: 40px;
+}

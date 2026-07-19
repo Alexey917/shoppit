@@ -1,0 +1,48 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+  box-shadow: 0 0 10px grey;
+  border-radius: 8px;
+  grid-area: user;
+}
+
+.img {
+  margin: auto;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.userName {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 100%;
+  color: #000;
+}
+
+.userEmail {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: grey;
+}
+
+.btn {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fff;
+  background: #7a60d8;
+}

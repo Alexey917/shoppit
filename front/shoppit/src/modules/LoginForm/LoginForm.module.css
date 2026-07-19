@@ -1,0 +1,90 @@
+.form {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 350px;
+  box-shadow: 0 0 15px grey;
+  border-radius: 8px;
+}
+
+.legend {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000;
+}
+
+.please {
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: grey;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.label {
+  margin-bottom: 5px;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: #000;
+}
+
+.input {
+  margin: 10px 0;
+  height: 45px;
+}
+
+.btn {
+  margin: 10px 0;
+  margin-bottom: 30px;
+  align-self: center;
+  width: 310px;
+  height: 45px;
+  background-color: #7a60d8;
+}
+
+.forget,
+.reg {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: #7a60d8;
+  text-decoration: none;
+}
+
+.noHave {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 100%;
+  color: black;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 20px;
+}
