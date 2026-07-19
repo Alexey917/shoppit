@@ -12,6 +12,12 @@ import requests
 
 BASE_URL = "http://localhost:5173"
 
+paypalrestsdk.configure({
+  "mode": settings.PAYPAL_MODE,
+  "client_id": settings.PAYPAL_CLIENT_ID,
+  "client_secret": settings.PAYPAL_CLIENT_SECRET
+})
+
 # Create your views here.
 
 @api_view(["GET"])
