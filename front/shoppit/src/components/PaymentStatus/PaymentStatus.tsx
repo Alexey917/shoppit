@@ -38,6 +38,30 @@ export const PaymentStatus = () => {
     verifyHandler();
   }, []);
 
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const paymentId = queryParams.get('paymentId');
+    const payerId = queryParams.get('PayerID');
+    const ref = queryParams.get('ref');
+
+    const verifyPaypalHandler = async () => {
+      try {
+        const response = await client.post(
+          `paypal_payment_callback/?paymentId=${paymentId}&PayerID=${payerId}&ref=${ref}`,
+        );
+        setTitle(response.data.message);
+        setText(response.data.subMessage);
+        localStorage.removeItem('cart_code');
+        context?.setQuantity(0);
+      } catch (e: unknown) {
+        const errorMessage = getErrorMessage(e);
+        console.log(errorMessage);
+      }
+    };
+
+    verifyPaypalHandler();
+  }, []);
+
   return (
     <section className={classes.welcome}>
       <h1 className={classes.welcome__title}>{title}</h1>
