@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view, permission_classes
-from .models import Products, Cart, CartItem, Transaction
-from .serializers import productSerializer, DetailedProductSerializer, CartItemSerializer, SimpleCartSerializer, CartSerializer, UserSerializer
+from .models import Products, Cart, CartItem, Transaction, Profile
+from .serializers import productSerializer, DetailedProductSerializer, CartItemSerializer, SimpleCartSerializer, CartSerializer, UserSerializer, ProfileSerializer
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
@@ -71,14 +71,16 @@ def product_in_cart(request):
 @api_view(["GET"])
 def get_cart_stat(request):
   cart_code = request.query_params.get("cart_code")
-  cart = Cart.objects.get(cart_code=cart_code, paid=False)
+  # cart = Cart.objects.get(cart_code=cart_code, paid=False)
+  cart, _ = Cart.objects.get_or_create(cart_code = cart_code, paid=False)
   serializer = SimpleCartSerializer(cart)
   return Response(serializer.data)
 
 @api_view(["GET"])
 def get_cart(request):
   cart_code = request.query_params.get("cart_code")
-  cart = Cart.objects.get(cart_code=cart_code, paid=False)
+  # cart = Cart.objects.get(cart_code=cart_code, paid=False)
+  cart, _ = Cart.objects.get_or_create(cart_code = cart_code, paid=False)
   serializer = CartSerializer(cart)
   return Response(serializer.data)
 
@@ -113,8 +115,8 @@ def get_username(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def user_info(request):
-  user = request.user
-  serializer = UserSerializer(user)
+  user = Profile.objects.get(user=request.user)
+  serializer = ProfileSerializer(user)
   return Response(serializer.data)
 
 

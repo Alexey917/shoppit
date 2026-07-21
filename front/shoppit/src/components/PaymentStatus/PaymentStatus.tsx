@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { generateCartCode } from '@/utils';
 
 import classes from './PaymentStatus.module.css';
 import { client } from '@/api/client';
@@ -29,6 +30,8 @@ export const PaymentStatus = () => {
         setText(response.data.subMessage);
         localStorage.removeItem('cart_code');
         context?.setQuantity(0);
+        const newCartCode = generateCartCode();
+        localStorage.setItem('cart_code', newCartCode);
       } catch (e: unknown) {
         const errorMessage = getErrorMessage(e);
         console.log(errorMessage);
@@ -38,29 +41,31 @@ export const PaymentStatus = () => {
     verifyHandler();
   }, []);
 
-  useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
-    const paymentId = queryParams.get('paymentId');
-    const payerId = queryParams.get('PayerID');
-    const ref = queryParams.get('ref');
+  // useEffect(() => {
+  //   const queryParams = new URLSearchParams(location.search);
+  //   const paymentId = queryParams.get('paymentId');
+  //   const payerId = queryParams.get('PayerID');
+  //   const ref = queryParams.get('ref');
 
-    const verifyPaypalHandler = async () => {
-      try {
-        const response = await client.post(
-          `paypal_payment_callback/?paymentId=${paymentId}&PayerID=${payerId}&ref=${ref}`,
-        );
-        setTitle(response.data.message);
-        setText(response.data.subMessage);
-        localStorage.removeItem('cart_code');
-        context?.setQuantity(0);
-      } catch (e: unknown) {
-        const errorMessage = getErrorMessage(e);
-        console.log(errorMessage);
-      }
-    };
+  //   const verifyPaypalHandler = async () => {
+  //     try {
+  //       const response = await client.post(
+  //         `paypal_payment_callback/?paymentId=${paymentId}&PayerID=${payerId}&ref=${ref}`,
+  //       );
+  //       setTitle(response.data.message);
+  //       setText(response.data.subMessage);
+  //       localStorage.removeItem('cart_code');
+  //       context?.setQuantity(0);
+  //       const newCartCode = generateCartCode();
+  //       localStorage.setItem('cart_code', newCartCode);
+  //     } catch (e: unknown) {
+  //       const errorMessage = getErrorMessage(e);
+  //       console.log(errorMessage);
+  //     }
+  //   };
 
-    verifyPaypalHandler();
-  }, []);
+  //   verifyPaypalHandler();
+  // }, []);
 
   return (
     <section className={classes.welcome}>

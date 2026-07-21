@@ -28,7 +28,7 @@ export const Overview = ({ user }: IOverview) => {
         </li>
         <li className={classes.overviewItem}>
           <span className={classes.key}>City:</span>
-          <span className={classes.value}>{user.phone}</span>
+          <span className={classes.value}>{user.city}</span>
         </li>
         <li className={classes.overviewItem}>
           <span className={classes.key}>Country:</span>

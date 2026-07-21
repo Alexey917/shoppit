@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Products, Cart, CartItem
+from .models import Products, Cart, CartItem, Profile
 from django.contrib.auth import get_user_model
 
 class productSerializer(serializers.ModelSerializer):
@@ -89,13 +89,41 @@ class NewCartItemSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
   items = serializers.SerializerMethodField()
   class Meta:
-    model = get_user_model()
-    fields = ["id", "username", "first_name", "last_name", "email", "city", "state", "address", "phone", "items"]
+    model = Profile
+    fields = ["id", "city", "state", "address", "phone", "items"]
+  
 
-  def get_items(self, user):
+  def get_items(self, obj):
+    # obj - это Profile
+    user = obj.user  # 👈 Получаем CustomerUser из профиля
     cartitems = CartItem.objects.filter(cart__user=user, cart__paid=True)[:10]
-    serializer = NewCartItemSerializer(cartitems, many=True)
+    serializer = CartItemSerializer(cartitems, many=True)
     return serializer.data
+
+  
+
+class ProfileSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(source='user.username', read_only=True)
+    email = serializers.EmailField(source='user.email', read_only=True)
+    first_name = serializers.CharField(source='user.first_name', read_only=True)
+    last_name = serializers.CharField(source='user.last_name', read_only=True)
+    items = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Profile
+        fields = [
+            'id', 'username', 'email', 'first_name', 'last_name',
+            'city', 'state', 'address', 'phone', 'avatar', 'items'
+        ]
+    
+    def get_items(self, obj):
+        # obj - это Profile, берем user из него
+        user = obj.user
+        cartitems = CartItem.objects.filter(cart__user=user, cart__paid=True)[:10]
+        from .serializers import CartItemSerializer
+        serializer = CartItemSerializer(cartitems, many=True)
+        return serializer.data
+
 
 
 """

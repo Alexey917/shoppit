@@ -24,6 +24,7 @@ export interface IUser {
       order_date: string;
     },
   ];
+  avatar: string;
 }
 
 export const Profile = () => {

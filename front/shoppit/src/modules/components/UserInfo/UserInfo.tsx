@@ -12,7 +12,7 @@ interface IUserInfo {
 export const UserInfo = ({ user }: IUserInfo) => {
   return (
     <article className={classes.user}>
-      <img src={pic} alt="user" className={classes.img} />
+      <img src={user.avatar} alt="user" className={classes.img} />
       <p className={classes.userName}>{user.username}</p>
       <p className={classes.userEmail}>{user.email}</p>
       <Button variant="solid" className={classes.btn}>
